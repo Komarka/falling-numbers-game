@@ -1,0 +1,395 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  overflow: hidden;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Основной контейнер для главного экрана */
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+}
+
+.main-menu h1 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Тень для заголовка */
+  text-align: center;
+}
+
+.main-menu label {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-menu input,
+.main-menu select {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  margin: 8px 0 20px;
+  width: 80%;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.9); /* Легкий фон для полей */
+}
+
+.main-menu input:focus,
+.main-menu select:focus {
+  outline: none;
+  border: 2px solid #00bcd4; /* Синий цвет при фокусе */
+}
+
+.main-menu button {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  background-color: #ff4081; /* Ярко-розовый цвет для кнопки */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Стиль для кнопки в обычном состоянии */
+.main-menu button:hover {
+  background-color: #f50057; /* Темно-розовый при наведении */
+}
+
+.main-menu button:active {
+  background-color: #c51162; /* Еще темнее при нажатии */
+}
+
+/* Стиль для кнопки в состоянии disabled */
+.main-menu button:disabled {
+  background-color: #d3d3d3; /* Светло-серый цвет для кнопки */
+  color: #a0a0a0; /* Темно-серый текст */
+  cursor: not-allowed; /* Курсор "запрещено" */
+}
+
+.main-menu button:disabled:hover,
+.main-menu button:disabled:active {
+  background-color: #d3d3d3; /* Оставляем тот же цвет, если кнопка отключена */
+}
+
+/* GameArea.css */
+/* GameArea.css */
+.game-container {
+  cursor: pointer;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.game-content {
+  height: calc(100vh - 60px); /* Subtract banner height */
+  width: 100%;
+  background-color: #1a1a2e;
+  /* Add your game content styling here */
+}
+
+.info-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(42, 42, 58, 0.8);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-top: 2px solid #4cc9f0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+.info-banner__left,
+.info-banner__center,
+.info-banner__right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.info-banner__center {
+  justify-content: center;
+}
+
+.info-banner__right {
+  justify-content: flex-end;
+}
+
+.timer-display {
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: monospace;
+  color: #f72585;
+}
+
+.play-pause-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.play-pause-button.play {
+  background-color: #4cc9f0;
+  color: #1a1a2e;
+}
+
+.play-pause-button.pause {
+  background-color: #f72585;
+  color: white;
+}
+
+.value-display {
+  color: #4cc9f0;
+  padding-right: 50px;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Add to GameInfoBanner.css */
+.timeout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.timeout-modal {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #4cc9f0;
+  max-width: 400px;
+  width: 90%;
+}
+
+.timeout-modal h2 {
+  color: #f72585;
+  margin-bottom: 1rem;
+}
+
+.timeout-modal p {
+  color: #e6e6e6;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-points {
+  font-size: 1.5rem;
+  color: #4cc9f0;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.modal-restart-button {
+  background-color: #f72585;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.modal-restart-button:hover {
+  background-color: #b5179e;
+  transform: scale(1.05);
+}
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+.explosion {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  box-shadow: 0 0 10px gold;
+  animation: explode 0.5s ease-out forwards;
+}
+
+@keyframes trail {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+.explosion::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: inherit;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+  animation: trail 0.5s ease-out;
+}
+
+@keyframes fallingAnimation {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+.falling-number {
+  cursor: pointer;
+  position: absolute;
+  font-size: 3rem;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: transform 0.05s linear;
+  animation: fallingAnimation 6s linear infinite; /* Controls speed */
+}
+
+.special-item {
+  position: absolute;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: transform 0.05s linear;
+  animation: fallingAnimation 6s linear infinite; /* Controls speed */
+  user-select: none;
+}
+
+.special-item:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* Стили для разных типов */
+.special-item.freeze {
+  color: #00ccff;
+  transition: transform 0.05s linear;
+  animation: fallingAnimation 8s linear infinite; /* Controls speed */
+  text-shadow: 0 0 10px #00ccff;
+}
+
+.special-item.speedUp {
+  color: #ffcc00;
+  transition: transform 0.05s linear;
+  animation: fallingAnimation 8s linear infinite; /* Controls speed */
+  text-shadow: 0 0 10px #ffcc00;
+}
+
+.special-item.slowDown {
+  color: #ff4444;
+  transition: transform 0.05s linear;
+  animation: fallingAnimation 8s linear infinite; /* Controls speed */
+  text-shadow: 0 0 10px #ff4444;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+  .main-menu h1 {
+    font-size: 2rem; /* Уменьшаем размер заголовка на мобильных */
+  }
+
+  .main-menu input,
+  .main-menu select,
+  .main-menu button {
+    width: 100%; /* Делаем элементы на весь экран */
+  }
+}
