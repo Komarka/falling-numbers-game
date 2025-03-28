@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { generateExplosion, generateRandomNumber } from '../utils';
 
 export interface FallingNumber {
@@ -21,7 +21,7 @@ export const FallingNumbers = ({ isPlaying, onNumberClick }: Props) => {
   const [explosions, setExplosions] = useState<any[]>([]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout = null;
+    let interval: any = null;
     if (isPlaying) {
       interval = setInterval(() => {
         setFallingNumbers((prev) => [...prev, generateRandomNumber()]);

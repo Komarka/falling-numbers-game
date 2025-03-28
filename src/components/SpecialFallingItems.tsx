@@ -26,7 +26,7 @@ export const SpecialFallingItems = ({
   useEffect(() => {
     if (!isPlaying) return;
 
-    let interval: NodeJS.Timeout = null;
+    let interval: any = null;
 
     if (isPlaying) {
       interval = setInterval(() => {

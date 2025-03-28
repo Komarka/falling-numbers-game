@@ -25,7 +25,7 @@ export const GameInfoBanner = ({
   const [showTimeOutModal, setShowTimeOutModal] = useState(false);
   const [showWinModal, setShowWinModal] = useState(false);
 
-  const timerRef = useRef<NodeJS.Timeout>();
+  const timerRef = useRef<any>(null);
 
   useEffect(() => {
     if (isPlaying) {
