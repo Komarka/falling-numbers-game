@@ -35,7 +35,7 @@ export const generateRandomNumber = (): FallingNumber => {
   return {
     id: Date.now(),
     value: `${operator} ${number}`,
-    x: Math.random() * 100,
+    x: Math.random() * 80,
     y: -10 - Math.random() * 20,
     speed: Math.random() * 5 + 3,
     color: getRandomColor(),
