@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
 import { generateExplosion } from '../utils';
+import FrozenImage from '../assets/freeze_time.png';
+import AddTimeImage  from '../assets/add_time.png';
+import SpeedUpImage from '../assets/speed_up.png'
+
+
+
 
 interface SpecialItem {
   id: number;
@@ -23,6 +29,12 @@ export const SpecialFallingItems = ({
   const [specialItems, setSpecialItems] = useState<SpecialItem[]>([]);
   const [explosions, setExplosions] = useState<any[]>([]);
 
+  const imageRecordFromType = {
+    'freeze': FrozenImage,
+    'speedUp': SpeedUpImage,
+    'slowDown': AddTimeImage
+  }
+
   useEffect(() => {
     if (!isPlaying) return;
 
@@ -31,15 +43,16 @@ export const SpecialFallingItems = ({
     if (isPlaying) {
       interval = setInterval(() => {
         const types: SpecialItem['type'][] = ['freeze', 'speedUp', 'slowDown'];
-        const colors = ['grey', 'blue', 'red'];
+        const colors = {'freeze': 'blue', 'slowDown': 'blue', 'speedUp' :'red'};
         const randomIndex = Math.floor(Math.random() * types.length);
+        const type = types[randomIndex];
         const newItem: SpecialItem = {
           id: Date.now(),
-          type: types[randomIndex],
+          type: type,
           x: Math.random() * 100,
           y: -10 - Math.random() * 20,
           speed: Math.random() * 5 + 3,
-          color: colors[randomIndex],
+          color: colors[type],
         };
         setSpecialItems((prev) => [...prev, newItem]);
       }, 10000);
@@ -82,11 +95,13 @@ export const SpecialFallingItems = ({
             transition: isPlaying ? `top ${item.speed}s linear` : 'none',
           }}
         >
-          {item.type === 'freeze'
-            ? '🧊'
-            : item.type === 'speedUp'
-            ? '⏩'
-            : '⏰'}
+          {<img
+        src={imageRecordFromType[item.type]}
+        width={80}
+        height={80}
+        alt="Game Logo"
+        className="game-logo"
+      />}
         </div>
       ))}
 
